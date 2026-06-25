@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 知识型介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafbfc;
+            color: #1e2a3a;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        /* ---------- 标题层级 ---------- */
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+            color: #0b1a2b;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 2.8rem 0 0.8rem 0;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #e2e8f0;
+            color: #1a2b3c;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0 0 0.25rem 0;
+            color: #1f3a4c;
+        }
+
+        p, li {
+            font-size: 1rem;
+            color: #2b3e4f;
+        }
+
+        /* ---------- 细节补充 ---------- */
+        .subhead {
+            font-size: 1.1rem;
+            color: #4b5e6f;
+            margin-top: 0.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .intro-text {
+            margin-bottom: 2.4rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.25rem;
+        }
+
+        /* ---------- 卡片网格 ---------- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 1.25rem;
+            margin: 1rem 0 1.8rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #edf1f5;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #3f5466;
+            margin: 0;
+        }
+
+        .card .emoji-marker {
+            display: inline-block;
+            margin-right: 0.25rem;
+            font-size: 1.2rem;
+        }
+
+        /* ---------- 适合人群 ---------- */
+        .audience-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.25rem 0 1.2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.9rem;
+        }
+
+        .audience-list li {
+            background: #eef2f6;
+            padding: 0.25rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #1f3a4e;
+            line-height: 1.6;
+        }
+
+        /* ---------- 链接段落 ---------- */
+        .link-paragraph {
+            background: #f4f7fa;
+            padding: 1.4rem 1.6rem;
+            border-radius: 14px;
+            margin: 1.8rem 0;
+            border-left: 4px solid #0077b6;
+            line-height: 1.7;
+        }
+
+        .link-paragraph a {
+            color: #0077b6;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #b6d0e3;
+            transition: border-color 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            border-bottom: 1px solid #004e7a;
+        }
+
+        /* ---------- 其他 ---------- */
+        .faq-note {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dce3e9;
+        }
+
+        .faq-note summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1f3a4c;
+            padding: 0.5rem 0;
+        }
+
+        .faq-note details {
+            margin-bottom: 0.6rem;
+            color: #2b4052;
+        }
+
+        .faq-note details p {
+            margin: 0.5rem 0 0.2rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3e9ef;
+            margin: 2.8rem 0 1.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            .page {
+                padding: 2rem 1rem 4rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .link-paragraph {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 主视觉 / 标题 -->
+        <header>
+            <h1>爱游戏：从「玩什么」到「怎么选」</h1>
+            <p class="subhead">一个帮你快速理解游戏类型、匹配偏好的轻知识导航</p>
+        </header>
+
+        <!-- 介绍段落：用户视角切入，自然承接 -->
+        <div class="intro-text">
+            <p>
+                打开游戏库或应用商店，面对成千上万的游戏，很多人会先被封面吸引，却很少能一眼判断它是否真的适合自己。<strong>爱游戏</strong> 尝试改变这个习惯——它不是另一个游戏商店，而是一套围绕「快速识别游戏用途与风格」的信息组织方式。你可以把它理解成一份精心梳理的参照表，帮你从玩法类型、视觉调性、大致时长等维度，提前建立心理预期。
+            </p>
+            <p>
+                无论你想找一段可以随时暂停的叙事体验，还是需要能快速上手的策略游戏，这里的分类逻辑都围绕着真实的游戏场景展开。它不评价游戏好坏，只把选择权背后需要的信息，更清晰地放在你面前。
+            </p>
+        </div>
+
+        <!-- 用途卡片区 (信息卡片式) -->
+        <h2>用途 · 快速识别</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><span class="emoji-marker">🎯</span> 轻量休闲</h3>
+                <p>单局 5–20 分钟，规则直观，适合碎片时间或放松时刻。</p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-marker">🧩</span> 解谜 & 策略</h3>
+                <p>强调逻辑与规划，允许反复试错，适合喜欢独立思考的玩家。</p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-marker">📜</span> 叙事驱动</h3>
+                <p>注重故事、角色或世界观，沉浸感强，适合希望被剧情牵引的用户。</p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-marker">⚡</span> 动作 & 反应</h3>
+                <p>需要快速操作与手眼协调，节奏紧凑，适合追求即时反馈的玩家。</p>
+            </div>
+        </div>
+
+        <!-- 适合人群（标签式） -->
+        <h2>适合人群</h2>
+        <ul class="audience-list">
+            <li>日常游戏时间零散的上班族 / 学生</li>
+            <li>想尝试新类型但不知从何开始的观望者</li>
+            <li>喜欢提前了解游戏节奏与风格的理性玩家</li>
+            <li>希望为家庭或儿童筛选合适游戏的家长</li>
+        </ul>
+
+        <!-- 自然链接段落（嵌入 a 标签） -->
+        <div class="link-paragraph">
+            <p>
+                如果你希望不依赖平台推荐算法，更自主地探索游戏分类逻辑，可以花几分钟浏览 
+                <a href="https://zhhub-igame.com">爱游戏</a> 的条目结构。
+                它不追求覆盖所有新品，而是将常见游戏的类型特征、时间投入与交互方式做了对照整理。
+                通过这种分类视角，你能更快地判断一款游戏是否符合自己的「使用场景」——无论是等车时的小关卡，还是周末上午的沉浸长篇。
+            </p>
+        </div>
+
+        <!-- 补充一个 FAQ 摘要模块，增加深度 -->
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-note">
+            <details>
+                <summary>爱游戏 与普通游戏平台的差别是什么？</summary>
+                <p>普通平台侧重发行与下载，而爱游戏 偏重「信息分类」——它更像一份参考手册，帮你理解游戏在玩法、节奏、画面风格上的差异，不涉及购买或下载。</p>
+            </details>
+            <details>
+                <summary>分类基于哪些标准？会不会过时？</summary>
+                <p>主要依据玩法机制（回合/实时/动作）、单次时长、策略深度与叙事比重。分类会跟随游戏类型演变定期微调，但核心维度保持不变。</p>
+            </details>
+            <details>
+                <summary>我能贡献或者建议新的分类吗？</summary>
+                <p>目前以编辑团队梳理为主，但欢迎通过站点反馈渠道提出想法。分类库会逐步吸纳有代表性的新兴类型。</p>
+            </details>
+        </div>
+
+        <!-- 轻量尾注 / 提示 -->
+        <hr>
+        <p style="font-size: 0.85rem; color: #5f7285; margin-top: 0.2rem;">
+            此页面仅作信息展示，不提供游戏下载或购买链接。所有分类描述力求客观，帮助你在选择前建立清晰的预期。
+        </p>
+    </div>
+</body>
+</html>
