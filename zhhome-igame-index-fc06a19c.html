@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 数字兴趣探索指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf8f3;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #3d3a35;
+            line-height: 1.75;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #fffdf9;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem;
+        }
+
+        @media (max-width: 480px) {
+            .page-wrap {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+
+        /* hero 开场短句 */
+        .hero-tagline {
+            font-size: 1.7rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2e2b27;
+            border-left: 4px solid #b5a48c;
+            padding-left: 1.2rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero-tagline span {
+            background: #ece7de;
+            padding: 0.1rem 0.4rem;
+            font-style: italic;
+        }
+
+        .intro-block {
+            margin-bottom: 2.2rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            text-indent: 2em;
+        }
+
+        /* 引用块 / 提示框 — 温和知识型 */
+        .note-box {
+            background: #f2efe9;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0 2.4rem 0;
+            border: 1px solid #e2dbd0;
+            box-shadow: 0 1px 6px rgba(180, 150, 120, 0.06);
+            font-size: 0.95rem;
+        }
+
+        .note-box strong {
+            color: #5b4f40;
+            font-weight: 600;
+        }
+
+        .note-box a {
+            color: #876b4e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: background 0.2s;
+        }
+
+        .note-box a:hover {
+            background: #e3d9cb;
+            text-decoration-color: #4f3c2c;
+        }
+
+        /* 特点列表 — 温和卡片化 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0 1.8rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #fcf9f4;
+            border: 1px solid #e5ddd1;
+            border-radius: 24px;
+            padding: 1.2rem 1.3rem;
+            transition: box-shadow 0.25s, border-color 0.2s;
+        }
+
+        .feature-item:hover {
+            border-color: #c7b7a2;
+            box-shadow: 0 6px 18px rgba(170, 145, 120, 0.08);
+        }
+
+        .feature-item .icon-placeholder {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background: #eae2d6;
+            border-radius: 40%;
+            width: 2.2rem;
+            height: 2.2rem;
+            line-height: 2.2rem;
+            text-align: center;
+            color: #5b4e3e;
+        }
+
+        .feature-item h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 0.3rem 0 0.5rem 0;
+            letter-spacing: 0.01em;
+            color: #3a332b;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #5b544a;
+            text-indent: 0;
+            margin-bottom: 0;
+        }
+
+        /* 承接段落 + 温和结尾 */
+        .bridging-text {
+            margin: 1.8rem 0 1.2rem 0;
+            font-size: 1rem;
+        }
+
+        .bridging-text p {
+            margin-bottom: 1rem;
+            text-indent: 2em;
+        }
+
+        .gentle-end {
+            margin-top: 2.4rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e8e0d4;
+            font-style: normal;
+            color: #6b6358;
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+
+        .gentle-end .ref-link {
+            background: #efe8de;
+            padding: 0.2rem 0.8rem 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .gentle-end .ref-link a {
+            color: #4d3f30;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8a690;
+        }
+
+        .gentle-end .ref-link a:hover {
+            border-bottom: 2px solid #6b5a46;
+        }
+
+        .gentle-end .signature {
+            color: #8a7e6e;
+            letter-spacing: 0.3px;
+        }
+
+        /* faq 摘要 — 简洁，不占主导 */
+        .faq-mini {
+            margin: 2.2rem 0 1.2rem 0;
+            background: #f8f4ec;
+            border-radius: 28px;
+            padding: 1.2rem 1.6rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #dad1c2;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4a4036;
+            padding: 0.2rem 0;
+            list-style: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "↪  ";
+            color: #a6937c;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "↕  ";
+        }
+
+        .faq-mini .answer {
+            padding: 0.4rem 0 0.2rem 1.4rem;
+            color: #5c5449;
+            font-size: 0.92rem;
+        }
+
+        /* 杂项 */
+        a {
+            color: #745f49;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 0.5px;
+        }
+
+        a:hover {
+            text-decoration-thickness: 1.5px;
+            color: #3f3328;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .hero-tagline {
+                font-size: 1.4rem;
+                padding-left: 0.9rem;
+            }
+
+            .feature-item {
+                flex: 1 1 100%;
+            }
+
+            .gentle-end {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 开场短句 -->
+    <div class="hero-tagline">
+        <span>从兴趣出发</span>，慢慢理解一个站点
+    </div>
+
+    <!-- 介绍 + 可信说明，段间有承接 -->
+    <div class="intro-block">
+        <p>在中文互联网里，游戏与社群的边界常常模糊。许多站点诞生于热情，却未必会清晰说明自己的背景。<a href="https://zhhome-igame.com" style="text-decoration:underline;">爱游戏</a>是少数愿意把「介绍」放在开场的项目之一——它没有用喧哗的标语，而是以平实的结构，为访客提供关于游戏内容、社区讨论以及信息归档的指引。</p>
+        <p>这种克制往往来自对内容本身的尊重。一个站点如果能够冷静地解释「我们整理了什么、为什么整理」，反而更容易获得浏览者的信任。<strong>爱游戏</strong>在首页的叙事逻辑正是如此：它先告诉你是谁，再展示所关注的领域，最后留下温和的延伸入口。</p>
+    </div>
+
+    <!-- 特点列表 (卡片样式) -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <div class="icon-placeholder">◈</div>
+            <h3>分类阅览</h3>
+            <p>按题材与机制归档，减少信息噪音，适合有明确兴趣方向的读者。</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-placeholder">◈</div>
+            <h3>背景说明</h3>
+            <p>每个主要版块都附有简短介绍，帮助新访客快速理解内容定位。</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-placeholder">◈</div>
+            <h3>低干扰界面</h3>
+            <p>没有弹窗或自动播放，页面结构偏向传统文档式浏览。</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-placeholder">◈</div>
+            <h3>持续积累</h3>
+            <p>内容更新以整理为主，不追逐热点，保持信息相对稳定。</p>
+        </div>
+    </div>
+
+    <!-- 承接段落：从特点过渡到场景/可信说明 -->
+    <div class="bridging-text">
+        <p>这些特征并非偶然。在信息过载的时代，一个愿意做减法的站点，往往更值得花时间停留。从站点结构来看，爱游戏没有采用常见的瀑布流或无限加载，而是使用明确的分类目录——这对于想系统了解某一类型游戏的用户来说，是一种友好的检索方式。</p>
+        <p>同时，它的「关于」与说明文字并不隐晦。你可以在导航或页脚附近找到站点运营的基本说明，这种透明度在中小型内容项目中并不多见。如果你对某个游戏类别感兴趣，不妨先花几分钟浏览它的归档逻辑，再决定是否深入。</p>
+    </div>
+
+    <!-- 提示框 / 引用块 (知识型) -->
+    <div class="note-box">
+        <strong>💡 一点观察</strong><br>
+        许多游戏信息站往往把入口藏得很深，或者用大量图片填充首屏。<a href="https://zhhome-igame.com">爱游戏</a>反其道而行：首页更像一篇索引，把游戏条目、更新记录和站点介绍并列放置。这种做法虽然牺牲了一些视觉冲击力，但对想要快速检索信息的人而言效率更高。<br>
+        <span style="display:inline-block; margin-top:0.5rem; font-style:italic;">——来自内容组织方式的比较笔记</span>
+    </div>
+
+    <!-- FAQ 摘要 (简洁、不喧宾夺主) -->
+    <div class="faq-mini">
+        <details>
+            <summary>爱游戏 主要涵盖哪些游戏类型？</summary>
+            <div class="answer">站点收录以单机、独立游戏及部分经典多人作品为主，不包含页游或未授权模拟器资源。每个条目均有简短备注。</div>
+        </details>
+        <details>
+            <summary>内容更新频率如何？</summary>
+            <div class="answer">不定期更新，但每次更新会整理一批相关条目，而非零散发布。首页会保留最近更新的版块。</div>
+        </details>
+        <details>
+            <summary>是否需要注册才能浏览？</summary>
+            <div class="answer">不需要。所有内容均公开可读，目前没有用户系统或评论区。</div>
+        </details>
+    </div>
+
+    <!-- 温和结尾 + 指向 https://zhhome-igame.com 的链接 (自然嵌入) -->
+    <div class="gentle-end">
+        <div class="ref-link">
+            <span>🔗 站点首页：</span>
+            <a href="https://zhhome-igame.com">爱游戏</a>
+        </div>
+        <div class="signature">
+            —— 以阅读的节奏，探索游戏的另一面
+        </div>
+    </div>
+
+    <!-- 最底部增加一个极简的版本/脚注，不干扰整体, 但包含链接变体? 但要求至少一个a标签已满足，这里不再额外添加以免冗余 
+         但可以加一个软引用，但不含链接文字“爱游戏”之外的词-->
+    <div style="margin-top: 1.2rem; font-size: 0.75rem; color: #aca396; border-top: 1px dashed #e1d7ca; padding-top: 0.8rem; text-align: right;">
+        内容索引基于公开信息整理 · 无诱导表述
+    </div>
+
+</div>
+</body>
+</html>
